@@ -441,8 +441,6 @@ combined_train_test['Ticket_Number'].fillna(0, inplace = True)
 combined_train_test = pd.get_dummies(combined_train_test, columns = ['Ticket', 'Ticket_Letter'])
 combined_train_test.shape
 
-combined_train_test['Ticket_Number'] = combined_train_test['Ticket'].str.extract('(\d+)').astype(int)
-
 #### Cabin
 combined_train_test['Cabin_Letter'] = combined_train_test['Cabin'].apply(lambda x: str(x)[0] if(pd.notnull(x)) else x)
 combined_train_test = pd.get_dummies(combined_train_test, columns = ['Cabin', 'Cabin_Letter'])
